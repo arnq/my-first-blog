@@ -11,14 +11,16 @@
 <article>
     <time>published: 26/11/2022 14:44</time>
     <h2><a href="">Hello from Django Girl´s in Groningen, Netherlands</a></h2>.
-    <dev class="image"><img src="photo1.jpg" alt="Photo1"></dev>
+    <div class="image"><img src="img/photo1.jpg" alt="Photo1"></div>
     <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
 </article>
 
+{% for post in posts %}
 <article>
-    <time>published: 26/11/2022 14:44</time>
-    <h2><a href="">My second post</a></h2>
-    <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.</p>
+    <time>published: {{ post.published_date }}</time>
+    <h2><a href="">{{ post.title }}</a></h2>
+    <p>{{ post.text|linebreaksbr }}</p>
 </article>
+{% endfor %}
 </body>
 </html>
